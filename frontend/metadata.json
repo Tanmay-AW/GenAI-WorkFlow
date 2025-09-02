@@ -1,0 +1,5 @@
+
+{
+  "name": "GenAI Stack Builder",
+  "description": "A No-Code/Low-Code web application to visually create and interact with intelligent AI workflows. Users can configure a flow of components that handle user input, extract knowledge from documents, interact with language models, and return answers through a chat interface."
+}

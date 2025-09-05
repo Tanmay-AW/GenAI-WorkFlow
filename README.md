@@ -40,12 +40,14 @@ The UI is being built in React + TypeScript, and the backend uses FastAPI + Post
 
 ## How to Run
 
-### Backend
-```bash
+### In Bash terminal
+
+**For Backend**
+
 cd backend
 uvicorn main:app --reload
 
-### Backend
+**For Frontend**
 
 cd frontend
 npm install

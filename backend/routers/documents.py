@@ -4,6 +4,7 @@ from database import SessionLocal
 from models import Document
 import shutil
 import os
+from utils.pdf_extract import extract_text_from_pdf
 
 router = APIRouter()
 
@@ -19,7 +20,11 @@ async def upload_document(file: UploadFile = File(...), db: AsyncSession = Depen
     file_path = os.path.join(UPLOAD_DIR, file.filename)
     with open(file_path, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
-    doc = Document(filename=file.filename, metadata={})
+
+    # Extract text immediately
+    extracted_text = extract_text_from_pdf(file_path)
+
+    doc = Document(filename=file.filename, metadata={"text": extracted_text})
     db.add(doc)
     await db.commit()
     await db.refresh(doc)

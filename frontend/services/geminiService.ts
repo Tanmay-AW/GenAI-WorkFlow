@@ -1,8 +1,8 @@
-export async function* generateContentStream(prompt: string): AsyncGenerator<string> {
+export async function* generateContentStream(query: string, prompt: string, context: string = ""): AsyncGenerator<string> {
     const body = {
-        query: prompt,
-        context: "",
-        prompt: prompt
+        query,
+        context,
+        prompt
     };
     const response = await fetch("http://localhost:8000/llm/query", {
         method: "POST",
@@ -16,6 +16,7 @@ export async function* generateContentStream(prompt: string): AsyncGenerator<str
         throw new Error(`API error: ${response.statusText}`);
     }
 
+    // Backend returns a plain string, not { response: ... }
     const data = await response.json();
-    yield data.response;
+    yield data;
 }

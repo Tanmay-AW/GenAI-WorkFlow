@@ -1,0 +1,36 @@
+# Ignore Python cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore environment and dependency folders
+venv/
+env/
+
+# Ignore database and essential data files
+*.db
+*.sqlite3
+*.sqlite
+*.log
+
+# Ignore secrets and config
+.env
+backend/.env
+frontend/.env
+*.secret
+
+# Ignore Jupyter notebooks
+*.ipynb
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore requirements lock files
+pip-log.txt
+
+# Ignore backup files
+*.bak
+*.swp
+*.swo
